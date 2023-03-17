@@ -1,12 +1,14 @@
 <template>
   <main>
     <Titulo />
-    <h2>Jogador da vez: {{ currentPlayer }}</h2>
+    <h2 v-if="carregando">Carregando ...</h2>
+    <h2 v-else>Jogador da vez: {{ currentPlayer }}</h2>
     <Game
       :jogadorAtual="currentPlayer"
       :jogou="jogou"
       :temVencedor="!!vencedor"
       :opcoes="opcoes"
+      :carregando="carregando"
     />
     <h1 v-if="vencedor">O jogador {{ vencedor }} venceu a rodada!</h1>
     <h1 v-if="empate">O jogo empatou</h1>
@@ -20,17 +22,7 @@
 import { defineComponent } from "vue";
 import Game, { type Iopcao } from "./components/Game.vue";
 import Titulo from "./components/Titulo.vue";
-
-const jogos = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-  [1, 4, 7],
-  [2, 5, 8],
-  [3, 6, 9],
-  [1, 5, 9],
-  [3, 5, 7],
-];
+import axios from "axios";
 
 const valoresIniciais = {
   currentPlayer: "X",
@@ -61,34 +53,47 @@ export default defineComponent({
       vencedor: valoresIniciais.vencedor,
       empate: valoresIniciais.empate,
       opcoes: [...valoresIniciais.opcoes],
+      carregando: false,
     };
   },
   methods: {
-    jogou(opcao: Iopcao) {
+    async jogou(opcao: Iopcao) {
       opcao.player = this.currentPlayer;
 
-      const opcoesX = this.opcoes
-        .filter((opcao) => opcao.player === "X")
-        .map((opcao) => opcao.opcao);
+      this.carregando = true;
 
-      const opcoesO = this.opcoes
-        .filter((opcao) => opcao.player === "O")
-        .map((opcao) => opcao.opcao);
+      const resposta = await axios.post(
+        "http://localhost:2222/verifica-Jogo",
+        this.opcoes
+      );
 
-      for (const jogo of jogos) {
-        if (jogo.every((item) => opcoesX.includes(item))) {
-          this.vencedor = "X";
-          return;
-        }
-        if (jogo.every((item) => opcoesO.includes(item))) {
-          this.vencedor = "O";
-          return;
-        }
-      }
+      this.vencedor = resposta.data.vencedor;
+      this.empate = resposta.data.empate;
 
-      if (opcoesX.length + opcoesO.length === 9) {
-        this.empate = true;
-      }
+      this.carregando = false;
+
+      // const opcoesX = this.opcoes
+      //   .filter((opcao) => opcao.player === "X")
+      //   .map((opcao) => opcao.opcao);
+
+      // const opcoesO = this.opcoes
+      //   .filter((opcao) => opcao.player === "O")
+      //   .map((opcao) => opcao.opcao);
+
+      // for (const jogo of jogos) {
+      //   if (jogo.every((item) => opcoesX.includes(item))) {
+      //     this.vencedor = "X";
+      //     return;
+      //   }
+      //   if (jogo.every((item) => opcoesO.includes(item))) {
+      //     this.vencedor = "O";
+      //     return;
+      //   }
+      // }
+
+      // if (opcoesX.length + opcoesO.length === 9) {
+      //   this.empate = true;
+      // }
 
       this.currentPlayer = this.currentPlayer === "O" ? "X" : "O";
     },

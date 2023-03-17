@@ -3,7 +3,7 @@
     <button
       v-for="opcao in opcoes"
       @click="() => aoClicar(opcao)"
-      :disabled="temVencedor"
+      :disabled="temVencedor || carregando"
     >
       {{ opcao.player }}
     </button>
@@ -32,6 +32,10 @@ export default defineComponent({
     temVencedor: Boolean,
     opcoes: {
       type: Array as () => Iopcao[],
+      required: true,
+    },
+    carregando: {
+      type: Boolean,
       required: true,
     },
   },
