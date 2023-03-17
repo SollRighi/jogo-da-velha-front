@@ -23,10 +23,18 @@ Toda vez que haver um vencedor ou um empate, é necessário clicar no botão "Re
 Além da diversão, este jogo auxilia no desenvolvimento sensório motor e cognitivo. 
 Também muito utilizado para estimular o desenvolvimento lógico das crianças.
 
-# Configurações do Projeto
+# Configurações do Projeto ⚙️
 
-## Instale as dependências:
+## Antes de executar o front é necessário executar também o back, então dirija se ao repositório "https://github.com/SollRighi/jogo-da-velha-back" e execute o back, depois volte e siga as instruções abaixo:
+
+## Será necessário executar o projeto localmente, seguindo os passos a seguir: 
+
+### Clone o projeto no seu computador: 
+
+" git clone https://github.com/SollRighi/jogo-da-velha-front.git "
+
+### Instale as dependências:
 " npm install "
 
-## Execute o projeto:
+### Execute o projeto:
 " npm run dev "
