@@ -1,40 +1,32 @@
-# jogo-da-velha
+# Jogo da Velha 
 
-This template should help get you started developing with Vue 3 in Vite.
+## O que é? 🤔
 
-## Recommended IDE Setup
+O jogo da velha é também um jogo popular e pode ser conhecido por outros nomes diferentes como: jogo do galo ou três em linha. 
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+A origem é desconhecida, mas há registros de tabuleiros esculpidos na rocha no Egito, que teriam mais de 3.500 anos.
 
-## Type Support for `.vue` Imports in TS
+Contudo, algumas lendas urbanas contam que o jogo teria nascido em Portugal.  No entanto, só foi popularizado no Brasil, no ano 1500, por Pedro Álvares Cabral, que adorava jogar este jogo durante as suas viagens.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+## Como jogar? 😮‍💨
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+É um jogo de regras extremamente simples e fácil de aprender, é jogado por 2 jogadores, um dos jogadores escolhe ser representado pela letra "X" e o outro, escolhe ser representado pela letra "O".
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+Os jogadores jogam alternadamente, uma marcação por vez, numa lacuna que esteja vazia. O objetivo é conseguir completar três "O" ou três "X" em linha, quer horizontal, vertical ou diagonal, e ao mesmo tempo, quando possível, impedir o adversário de ganhar na próxima jogada. Quando um jogador conquista o objetivo, costuma-se riscar os três símbolos, mas neste caso, aparecerá uma mensagem indicando o vencedor.
 
-## Customize configuration
+Também pode ocorrer do jogo "dar velha", isso significa que não teve nenhum vencedor e todas as lacunas foram preenchidas, neste caso ocorrerá o empate e também aparecerá uma mensagem na tela informando este empate. 
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+Toda vez que haver um vencedor ou um empate, é necessário clicar no botão "Reiniciar o jogo" para jogar mais uma partida.
 
-## Project Setup
+## E quais os benefícios de jogar este jogo? 🤯
 
-```sh
-npm install
-```
+Além da diversão, este jogo auxilia no desenvolvimento sensório motor e cognitivo. 
+Também muito utilizado para estimular o desenvolvimento lógico das crianças.
 
-### Compile and Hot-Reload for Development
+# Configurações do Projeto
 
-```sh
-npm run dev
-```
+## Instale as dependências:
+" npm install "
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
+## Execute o projeto:
+" npm run dev "
